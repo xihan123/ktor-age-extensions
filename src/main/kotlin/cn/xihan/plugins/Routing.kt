@@ -27,7 +27,7 @@ fun Route.playHistoryRouting() {
     route("/AGE-API/history") {
         get {
             val userName = call.request.queryParameters["userName"]
-            println("userName:$userName")
+            //println("userName:$userName")
             if (userName.isNullOrEmpty()) {
                 return@get call.respond("请求参数错误")
             }
@@ -54,6 +54,5 @@ fun Route.playHistoryRouting() {
         }
 
     }
-
 
 }
