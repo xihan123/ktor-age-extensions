@@ -35,7 +35,7 @@ fun Route.barrageRouting() {
             }
             dao.queryBarrage(animeId!!, exCode!!)?.let {
                 call.respond(it)
-            } ?: call.respond("查询失败")
+            } ?: call.respond(BarrageEntity())
         }
 
         post {
