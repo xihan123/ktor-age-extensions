@@ -9,6 +9,7 @@ fun main() {
     DatabaseFactory.init()
 
 
+    // 改为自己本机IP 或者 127.0.0.1, 0.0.0.0 都可以
     val hosts = "192.168.43.110"
 
     val environment = applicationEngineEnvironment {

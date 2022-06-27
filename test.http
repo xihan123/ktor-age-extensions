@@ -1,0 +1,75 @@
+### 更新历史记录
+POST http://192.168.43.111:80/AGE-API/history
+Content-Type: application/json
+
+{
+  "creationTime": "2022-06-17 19:46:29",
+  "data": [
+    {
+      "f_AID": "1",
+      "f_TITLE": "测试",
+      "f_IMG_URL": "",
+      "f_PLAY_URL": "",
+      "f_PLAY_NUMBER": "",
+      "f_LATEST_PLAY_NUMBER": "",
+      "f_UPDATE_TIME": "",
+      "f_PLAYER_NUMBER": 0,
+      "f_PROGRESS": 0,
+      "f_DURATION": 0,
+      "f_LAST_TIME": "",
+      "f_PLAYER_LIST": []
+    }
+  ],
+  "updateTime": "2022-06-17 19:46:29",
+  "userName": "test4"
+}
+
+
+### 更新弹幕
+POST http://192.168.43.111:8080/AGE-API/barrage?animeId=20140053&exCode=5
+Content-Type: application/json
+
+{
+  "text": "测试弹幕",
+  "type": 1,
+  "userName": "fd1314",
+  "time": 9000,
+  "textSize": 25,
+  "textColor": 1048575
+}
+
+### 获取指定 animeId 弹幕 exCode 集数
+GET http://192.168.43.111:8080/AGE-API/barrage?animeId=20140053&exCode=5
+
+### 弹幕管理
+### 获取用户所有弹幕
+GET http://192.168.43.111:8080/AGE-API/barrageManage?userName=fd1314
+Accept: application/json
+
+
+### 更新弹幕管理
+POST http://192.168.43.111:8080/AGE-API/barrageManage
+Content-Type: application/json
+
+{
+  "userName": "fd1314",
+  "userAllBarrage": [
+    "测试弹幕"
+  ],
+  "barrageAnimeIdList": [
+    {
+      "animeId": "20140053",
+      "exCode": 1,
+      "barrageList": [
+        "测试弹幕"
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+

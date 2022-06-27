@@ -3,6 +3,7 @@ package cn.xihan.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Table
 
 /**
@@ -71,15 +72,11 @@ data class R在线播放All(
     var ex: String = ""
 )
 
-object PlayHistoryTable: Table(){
-
-    val id = integer("id").autoIncrement()
+object PlayHistoryTable: IntIdTable(){
 
     val userName = varchar("name", 16)
     val created_at = varchar("created_at", 99)
     val updated_at = varchar("updated_at", 99)
     val historyData = varchar("historyData", 1048576)
-
-    override val primaryKey = PrimaryKey(id)
 
 }

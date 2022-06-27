@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "cn.xihan"
-version = "0.0.1"
+version = "0.0.2"
 application {
     mainClass.set("cn.xihan.ApplicationKt")
 
@@ -24,6 +24,7 @@ application {
 repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/") }
 }
 
 dependencies {
@@ -39,8 +40,6 @@ dependencies {
     implementation("com.h2database:h2:$h2_version")
 
     implementation("ch.qos.logback:logback-classic:$logback_version")
-
-
 
 
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
