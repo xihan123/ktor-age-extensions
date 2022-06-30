@@ -19,8 +19,8 @@ object DatabaseFactory {
         val database = Database.connect(jdbcURL, driverClassName)
         transaction(database) {
             SchemaUtils.create(PlayHistoryTable)
-            SchemaUtils.create(BarrageTable)
-            SchemaUtils.create(UserBarrageManagerTable)
+//            SchemaUtils.create(BarrageTable)
+//            SchemaUtils.create(UserBarrageManagerTable)
             SchemaUtils.create(UserShieldWordTable)
         }
     }

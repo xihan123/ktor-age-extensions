@@ -35,7 +35,7 @@ data class BarrageEntity(
         @SerialName("textSize")
         var textSize: Int,
         @SerialName("textColor")
-        var textColor: Int
+        var textColor: Long
     )
 }
 

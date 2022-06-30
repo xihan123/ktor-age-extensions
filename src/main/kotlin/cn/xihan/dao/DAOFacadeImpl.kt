@@ -127,6 +127,36 @@ class DAOFacadeImpl : DAOFacade {
                 queryBarrage(animeId, exCode)?.let {
                     updateBarrage(BarrageEntity(animeId, exCode, barrageList))
                 } ?: insertBarrage(BarrageEntity(animeId, exCode, barrageList))
+
+                barrageList.forEach {  barrage ->
+                    queryBarrageUser(barrage.userName)?.let { userBarrageManager ->
+                        userBarrageManager.userAllBarrage.add(barrage.text)
+                        // 更新用户的弹幕列表
+                        userBarrageManager.barrageAnimeIdList.filter { it.animeId == animeId }
+                            .singleOrNull { it.exCode == exCode }?.barrageList?.add(barrage.text)
+                            ?: userBarrageManager.barrageAnimeIdList.add(
+                                UserBarrageManager.SendBarrage(
+                                    animeId,
+                                    exCode,
+                                    mutableListOf(barrage.text)
+                                )
+                            )
+                        insertOrUpdateBarrageUser(userBarrageManager)
+                    } ?: insertOrUpdateBarrageUser(
+                        UserBarrageManager(
+                            userName = barrage.userName,
+                            userAllBarrage = mutableListOf(barrage.text),
+                            barrageAnimeIdList = mutableListOf(
+                                UserBarrageManager.SendBarrage(
+                                    animeId,
+                                    exCode,
+                                    mutableListOf(barrage.text)
+                                )
+                            )
+                        )
+                    )
+                }
+               true
             } catch (e: Exception) {
                 false
             }

@@ -39,7 +39,7 @@ Content-Type: application/json
 }
 
 ### 获取指定 animeId 弹幕 exCode 集数
-GET http://192.168.43.111:8080/AGE-API/barrage?animeId=20140053&exCode=5
+GET http://192.168.43.111:8080/AGE-API/barrage?animeId=20220062&exCode=17
 
 ### 弹幕管理
 ### 获取用户所有弹幕
