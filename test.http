@@ -24,6 +24,10 @@ Content-Type: application/json
   "userName": "test4"
 }
 
+### 获取历史记录
+GET http://192.168.43.110:8081/AGE-API/history?userNmae=fd1314
+Accept: application/json
+
 
 ### 更新弹幕
 POST http://192.168.43.111:8080/AGE-API/barrage?animeId=20140053&exCode=5
@@ -45,7 +49,6 @@ GET http://192.168.43.111:8080/AGE-API/barrage?animeId=20220062&exCode=17
 ### 获取用户所有弹幕
 GET http://192.168.43.111:8080/AGE-API/barrageManage?userName=fd1314
 Accept: application/json
-
 
 ### 更新弹幕管理
 POST http://192.168.43.111:8080/AGE-API/barrageManage

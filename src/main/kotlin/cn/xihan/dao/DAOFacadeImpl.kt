@@ -7,6 +7,8 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import org.jetbrains.exposed.sql.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DAOFacadeImpl : DAOFacade {
 
@@ -128,7 +130,7 @@ class DAOFacadeImpl : DAOFacade {
                     updateBarrage(BarrageEntity(animeId, exCode, barrageList))
                 } ?: insertBarrage(BarrageEntity(animeId, exCode, barrageList))
 
-                barrageList.forEach {  barrage ->
+                barrageList.forEach { barrage ->
                     queryBarrageUser(barrage.userName)?.let { userBarrageManager ->
                         userBarrageManager.userAllBarrage.add(barrage.text)
                         // 更新用户的弹幕列表
@@ -156,7 +158,7 @@ class DAOFacadeImpl : DAOFacade {
                         )
                     )
                 }
-               true
+                true
             } catch (e: Exception) {
                 false
             }

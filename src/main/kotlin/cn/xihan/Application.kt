@@ -16,13 +16,14 @@ fun main() {
 
         connector {
             host = hosts
-            port = 8080
+            port = 8443
         }
 
         module {
             configureAdministration()
             configureRouting()
             configureSerialization()
+            configureWebSockets()
         }
 
     }

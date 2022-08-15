@@ -6,14 +6,13 @@ val h2_version: String by project
 
 plugins {
     application
-    kotlin("jvm") version "1.7.0"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.0"
+    kotlin("jvm")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("com.github.johnrengelman.shadow") version "7.1.2"
-
 }
 
 group = "cn.xihan"
-version = "0.0.2"
+version = "0.0.3"
 application {
     mainClass.set("cn.xihan.ApplicationKt")
 
@@ -23,8 +22,8 @@ application {
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
-    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/") }
+    maven("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -33,6 +32,9 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auto-head-response-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-websockets-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-sessions-jvm:$ktor_version")
+    implementation("io.ktor:ktor-network-tls-jvm:$ktor_version")
 
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")

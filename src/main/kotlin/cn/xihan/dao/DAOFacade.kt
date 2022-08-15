@@ -1,9 +1,6 @@
 package cn.xihan.dao
 
-import cn.xihan.models.BarrageEntity
-import cn.xihan.models.HistoryEntity
-import cn.xihan.models.PlayHistoryEntity
-import cn.xihan.models.UserBarrageManager
+import cn.xihan.models.*
 
 interface DAOFacade {
 
@@ -52,10 +49,5 @@ interface DAOFacade {
     suspend fun updateBarrageUserShieldWord(userName: String, words: List<String>): Boolean
     suspend fun insertOrUpdateBarrageUserShieldWord(userName: String, words: List<String>): Boolean
     suspend fun removeUserBarrageShieldWord(userName: String): Boolean
-
-
-
-
-
 
 }
