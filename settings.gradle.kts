@@ -1,18 +1,22 @@
 pluginManagement {
     repositories {
-        mavenCentral()
-        maven("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/")
+        google()
         gradlePluginPortal()
+        mavenCentral()
+        maven("https://jitpack.io")
+        maven("https://s01.oss.sonatype.org/content/repositories/releases")
     }
 
     plugins {
-        val kotlinVersion = extra["kotlin_version"] as String
-
-        kotlin("jvm").version(kotlinVersion)
-        id("org.jetbrains.kotlin.plugin.serialization").version(kotlinVersion)
+        kotlin("jvm").version(extra["kotlin.version"] as String)
+        kotlin("plugin.serialization").version(extra["kotlin.version"] as String)
+        id("io.ktor.plugin").version(extra["ktor.version"] as String)
+        id("com.github.johnrengelman.shadow").version("7.1.2")
     }
 }
 
 rootProject.name = "ktor-age-extensions"
-

@@ -1,21 +1,19 @@
 package cn.xihan
 
-import cn.xihan.dao.DatabaseFactory
+import cn.xihan.plugins.configureAdministration
+import cn.xihan.plugins.configureRouting
+import cn.xihan.plugins.configureSerialization
+import cn.xihan.utils.DatabaseFactory
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import cn.xihan.plugins.*
 
 fun main() {
-    DatabaseFactory.init()
-
-
-    // 改为自己本机IP 或者 127.0.0.1, 0.0.0.0 都可以
-    val hosts = "192.168.43.110"
-
+    DatabaseFactory.init(1)
     val environment = applicationEngineEnvironment {
 
         connector {
-            host = hosts
+            // 改为自己本机IP 或者 127.0.0.1, 0.0.0.0 都可以
+            host = "192.168.43.116"
             port = 8443
         }
 
@@ -23,15 +21,7 @@ fun main() {
             configureAdministration()
             configureRouting()
             configureSerialization()
-            configureWebSockets()
         }
-
     }
     embeddedServer(Netty, environment).start(wait = true)
-
-//    embeddedServer(Netty, port = 80, host = "192.168.43.111") {
-//        configureRouting()
-//        configureSerialization()
-//        configureAdministration()
-//    }.start(wait = true)
 }
